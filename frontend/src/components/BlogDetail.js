@@ -64,6 +64,7 @@ const BlogDetail = () => {
   const handleComment = (e) => {
     e.preventDefault()
     dispatch(addComment(id, comment))
+    setComment('')
   }
 
   if (!blog)
@@ -155,6 +156,7 @@ const BlogDetail = () => {
               onChange={(e) => setComment(e.target.value)}
             />
             <Button
+              type="submit"
               variant="contained"
               size="small"
               sx={{ mx: 'auto', display: 'block', mt: 1 }}
