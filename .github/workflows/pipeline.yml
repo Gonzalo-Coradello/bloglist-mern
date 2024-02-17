@@ -33,8 +33,7 @@ jobs:
       - name: Run tests
         run: |
           cd backend
-          cross-env NODE_ENV=test
-          jest
+          NODE_ENV=test jest
 
       - name: e2e tests
         uses: cypress-io/github-action@v6
