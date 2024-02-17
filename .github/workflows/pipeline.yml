@@ -23,6 +23,13 @@ jobs:
       - name: Build front-end
         run: cd backend && npm run build:ui
 
+      - name: Create .env file
+        run: |
+          cd backend
+          touch .env
+          echo TEST_MONGODB_URI=${{ secrets.TEST_MONGODB_URI }} > .env
+          cat .env
+
       - name: Run tests
         run: cd backend && npm run test
 
