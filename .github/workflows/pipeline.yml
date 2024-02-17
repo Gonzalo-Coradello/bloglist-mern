@@ -13,7 +13,22 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+
       - name: Install dependencies
         run: cd backend && npm install
+
       - name: Check style
         run: cd backend && npm run lint:check
+
+      - name: Build front-end
+        run: cd backend && npm run build:ui
+
+      - name: Run tests
+        run: cd backend && npm run test
+
+      - name: e2e tests
+        uses: cypress-io/github-action@v6
+        with:
+          command: cd frontend && npm run test:e2e
+          start: cd backend && npm run start:test
+          wait-on: http://localhost:3001
