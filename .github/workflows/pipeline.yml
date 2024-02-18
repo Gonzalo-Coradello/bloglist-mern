@@ -54,7 +54,7 @@ jobs:
         if: success()
         with:
           severity: info
-          text: A new version of Pokedex deployed
+          text: A new version of Bloglist deployed
           details: to ${{ github.repository }} by ${{ github.event.head_commit.author.username }}
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
