@@ -8,6 +8,12 @@ on:
 jobs:
   deployment_pipeline:
     runs-on: ubuntu-latest
+    env:
+      SKIP_PREFLIGHT_CHECK: true
+      MONGO_URI: ${{ secrets.MONGODB_URI }}
+      TEST_MONGO_URI: ${{ secrets.TEST_MONGODB_URI }}
+      PORT: ${{ secrets.PORT }}
+      SECRET: ${{ secrets.JWT_SECRET }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -22,12 +28,6 @@ jobs:
 
       - name: Build front-end
         run: npm run build
-
-      - name: Create .env file
-        run: |
-          touch .env
-          echo TEST_MONGODB_URI=${{ secrets.TEST_MONGODB_URI }} > .env
-          cat .env
 
       - name: Run tests
         run: npm run test
