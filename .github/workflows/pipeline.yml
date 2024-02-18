@@ -7,18 +7,18 @@ on:
 
 jobs:
   deployment_pipeline:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       SKIP_PREFLIGHT_CHECK: true
       MONGO_URI: ${{ secrets.MONGODB_URI }}
       TEST_MONGO_URI: ${{ secrets.TEST_MONGODB_URI }}
-      PORT: ${{ secrets.PORT }}
+      PORT: 3001
       SECRET: ${{ secrets.JWT_SECRET }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '16'
 
       - name: Install dependencies
         run: npm install
@@ -33,7 +33,7 @@ jobs:
         run: npm run test:ci
 
       - name: e2e tests
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v5
         with:
           command: npm run test:e2e
           start: npm run start:test
