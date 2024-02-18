@@ -3,31 +3,33 @@ const supertest = require('supertest')
 const app = require('../app')
 const Blog = require('../models/blog')
 const helper = require('./test_helper')
-const jwt = require('jsonwebtoken')
-const config = require('../utils/config')
 const User = require('../models/user')
+const bcrypt = require('bcrypt')
 
 const api = supertest(app)
 mongoose.set('bufferTimeoutMS', 30000)
 
 let token = ''
 
-beforeEach(async function () {
+beforeEach(async () => {
+  await User.deleteMany({})
+
+  const passwordHash = await bcrypt.hash('sekret', 10)
+  const user = new User({ username: 'root', password: passwordHash })
+  await user.save()
+
   const response = await api
     .post('/api/login')
     .send({ username: 'root', password: 'sekret' })
 
-  console.log('RESPONSE', response.body)
-
   token = response.body.token
-  const user = await User.findOne({ username: 'root' })
 
-  console.log({ token, user })
+  const userInDB = await User.findOne({ username: 'root' })
 
   await Blog.deleteMany({}).set('Authorization', `Bearer ${token}`)
 
   const blogObjects = helper.initialBlogs.map(
-    (blog) => new Blog({ ...blog, user: user._id }),
+    (blog) => new Blog({ ...blog, user: userInDB._id }),
   )
   const promiseArray = blogObjects.map((blog) => blog.save())
   await Promise.all(promiseArray)
