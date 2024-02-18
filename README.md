@@ -12,6 +12,7 @@ _[es]_ **Bloglist** es una aplicación web Full Stack en la que los usuarios pue
 - CRUD functionality. Posts can be created, liked, commented and deleted.
 - Unit, integration and End to End (E2E) testing.
 - Test Driven Development (TDD)
+- Continuous integration and continuous deployment (CI/CD) using GitHub Actions.
 
 ## Características:
 
@@ -20,6 +21,7 @@ _[es]_ **Bloglist** es una aplicación web Full Stack en la que los usuarios pue
 - CRUD. Los posts pueden ser vistos, creados, eliminados y editados.
 - Tests unitarios, de integración y End to End (E2E).
 - Test Driven Development (TDD)
+- Integración continua y despliegue continuo (CI/CD) utilizando GitHub Actions.
 
 ## Created with:
 
