@@ -12,13 +12,13 @@ jobs:
       SKIP_PREFLIGHT_CHECK: true
       MONGODB_URI: ${{ secrets.MONGODB_URI }}
       TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
-      PORT: 3001
+      PORT: ${{ secrets.PORT }}
       SECRET: ${{ secrets.JWT_SECRET }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
@@ -30,10 +30,10 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        run: npm run test:ci
+        run: npm run test
 
       - name: e2e tests
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v6
         with:
           command: npm run test:e2e
           start: npm run start:test
