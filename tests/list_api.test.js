@@ -17,8 +17,12 @@ beforeEach(async function () {
     .post('/api/login')
     .send({ username: 'root', password: 'sekret' })
 
+  console.log('RESPONSE', response.body)
+
   token = response.body.token
   const user = await User.findOne({ username: 'root' })
+
+  console.log({ token, user })
 
   await Blog.deleteMany({}).set('Authorization', `Bearer ${token}`)
 

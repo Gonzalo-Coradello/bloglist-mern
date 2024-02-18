@@ -30,7 +30,7 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        run: NODE_ENV=test npm run test:ci
+        run: npm run test
 
       - name: e2e tests
         uses: cypress-io/github-action@v6
