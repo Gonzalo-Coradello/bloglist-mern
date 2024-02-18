@@ -18,7 +18,7 @@ beforeEach(async function () {
     .send({ username: 'root', password: 'sekret' })
 
   token = response.body.token
-  const user = await User.findOne({ username: response.body.username })
+  const user = await User.findOne({ username: 'root' })
 
   await Blog.deleteMany({}).set('Authorization', `Bearer ${token}`)
 
