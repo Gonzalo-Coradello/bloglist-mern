@@ -38,3 +38,6 @@ jobs:
           command: npm run test:e2e
           start: npm run start:test
           wait-on: http://localhost:3001
+
+      - name: Trigger deployment
+        run: curl ${{ secrets.RENDER_DEPLOY_HOOK }}

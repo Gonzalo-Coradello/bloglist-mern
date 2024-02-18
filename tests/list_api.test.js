@@ -12,13 +12,13 @@ mongoose.set('bufferTimeoutMS', 30000)
 
 let token = ''
 
-beforeEach(async () => {
+beforeEach(async function () {
   const response = await api
     .post('/api/login')
     .send({ username: 'root', password: 'sekret' })
-  token = response.body.token
 
-  const user = await User.findOne({ token: token.username })
+  token = response.body.token
+  const user = await User.findOne({ username: response.body.username })
 
   await Blog.deleteMany({}).set('Authorization', `Bearer ${token}`)
 
