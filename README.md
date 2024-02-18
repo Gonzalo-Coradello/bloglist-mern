@@ -38,10 +38,10 @@ https://bloglist-fullstack-ag00.onrender.com/
 
 ## Screeenshots
 
-![](https://github.com/Gonzalo-Coradello/bloglist-mern/blob/main/frontend/screenshots/1.png)
-![](https://github.com/Gonzalo-Coradello/bloglist-mern/blob/main/frontend/screenshots/2.png)
-![](https://github.com/Gonzalo-Coradello/bloglist-mern/blob/main/frontend/screenshots/3.png)
-![](https://github.com/Gonzalo-Coradello/bloglist-mern/blob/main/frontend/screenshots/4.png)
-![](https://github.com/Gonzalo-Coradello/bloglist-mern/blob/main/frontend/screenshots/5.png)
-![](https://github.com/Gonzalo-Coradello/bloglist-mern/blob/main/frontend/screenshots/6.png)
-![](https://github.com/Gonzalo-Coradello/bloglist-mern/blob/main/frontend/screenshots/7.png)
+![](https://github.com/Gonzalo-Coradello/bloglist-mern/blob/main/screenshots/1.png)
+![](https://github.com/Gonzalo-Coradello/bloglist-mern/blob/main/screenshots/2.png)
+![](https://github.com/Gonzalo-Coradello/bloglist-mern/blob/main/screenshots/3.png)
+![](https://github.com/Gonzalo-Coradello/bloglist-mern/blob/main/screenshots/4.png)
+![](https://github.com/Gonzalo-Coradello/bloglist-mern/blob/main/screenshots/5.png)
+![](https://github.com/Gonzalo-Coradello/bloglist-mern/blob/main/screenshots/6.png)
+![](https://github.com/Gonzalo-Coradello/bloglist-mern/blob/main/screenshots/7.png)
